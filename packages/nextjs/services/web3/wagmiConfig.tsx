@@ -25,9 +25,6 @@ export const wagmiConfig = createConfig({
       const alchemyHttpUrl = getAlchemyHttpUrl(chain.id);
       if (alchemyHttpUrl) {
         rpcFallbacks = [http(alchemyHttpUrl)];
-      } else {
-        // Only use bare http() as last resort if no Alchemy URL available
-        rpcFallbacks = [http()];
       }
     }
     return createClient({
